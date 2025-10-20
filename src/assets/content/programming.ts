@@ -69,7 +69,7 @@ export const programmingContent: ProgrammingProps[] = [
       "Nessa talk, os profissionais da CSD BR apresentarão a empresa, a cultura, os desafios e as oportunidades disponíveis aos profissionais da região",
     typeEvent: "Talk",
     classification: "Free",
-    status: "LastVacancies",
+    status: "Closed",
   },
   {
     name: "A Solução Começa na Orelha",
