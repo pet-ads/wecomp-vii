@@ -33,7 +33,7 @@ Componentes reutilizáveis divididos em duas categorias:
 
 #### `commons/`
 
- Componentes comuns projeto organizados em subdiretórios:
+Componentes comuns projeto organizados em subdiretórios:
 
 ##### `structure/`
 
@@ -41,7 +41,7 @@ Componentes fixos da aplicação, comumente não são utilizados em outros proje
 
 ##### `toolkit/`
 
- Componentes reutilizaveis da aplicação, podem ser reutilizados por outros componentes na aplicação.
+Componentes reutilizaveis da aplicação, podem ser reutilizados por outros componentes na aplicação.
 
 #### `sections/`
 
@@ -83,6 +83,10 @@ Funções auxiliares da aplicação.
 
 - `responsive/`: Define pontos de quebra para responsividade.
 
+### `tests/`
+
+Contém os testes End-to-End (E2E) da aplicação, escritos com Playwright.
+
 ## Tecnologias Utilizadas
 
 - React + TypeScript
@@ -90,21 +94,61 @@ Funções auxiliares da aplicação.
 - Framer Motion
 - Styled Components
 - Facepaint
+- Playwright
 
-## Como rodar o projeto:
+---
+
+## Como Rodar o Projeto
+
+### 1. Ambiente de Desenvolvimento
+
+Para iniciar o projeto em modo de desenvolvimento:
 
 - Clone o repositório com o comando: `git clone https://github.com/pet-ads/wecomp-new.git`
 - Instale o gerenciador de dependências **Yarn** com o comando: `npm install -g yarn`
 - Navegue até a pasta do projeto no explorador de arquivos e abra-a utilizando o **Git Bash**.
-- No terminal do Git Bash, execute o script: `sh scripts/run-dev.sh` Esse comando irá gerar uma versão de produção da aplicação. Caso ocorra algum erro, ele será exibido no terminal. Ao final, será fornecido um link para acesso à versão de desenvolvimento.
-- Se preferir rodar o projeto diretamente com **npm**, utilize:
+- No terminal do Git Bash, execute o script: `sh scripts/run-dev.sh`
+- Se preferir rodar o projeto diretamente com **npm** (ou **yarn**), utilize:
   `npm run dev`
+
+Ao final, será fornecido um link para acesso à versão de desenvolvimento (geralmente `http://localhost:5173`).
 
 > **Observação:** Antes de enviar qualquer commit para o repositório, execute o comando `npm run build` para gerar uma versão de produção. Caso não haja erros, prossiga normalmente com o envio do commit.
 
+### 2. Rodando os Testes End-to-End (E2E)
 
+Utilizamos o **Playwright** para garantir a qualidade da aplicação.
 
-## Como contribuir
+#### 2.1. Execução no Terminal
+
+Para executar todos os testes E2E em modo *headless* (sem interface gráfica):
+
+```bash
+npx playwright test
+```
+
+#### 2.2. Execução com Interface Gráfica (Playwright UI)
+
+O Playwright oferece uma interface gráfica poderosa para depurar, inspecionar elementos e rodar testes de forma interativa. É a forma recomendada para escrever e manter os testes.
+
+Para abrir o Playwright UI:
+
+**Bash**
+
+```
+npx playwright test --ui
+```
+
+Isso abrirá uma janela que permite:
+
+* Ver a lista de testes.
+* Rodar testes individualmente.
+* Inspecionar o passo a passo de cada teste.
+* Usar a ferramenta "Pick Locator" para gerar seletores robustos.
+
+---
+
+## Como Contribuir
 
 Faça um fork deste repositório.
 
