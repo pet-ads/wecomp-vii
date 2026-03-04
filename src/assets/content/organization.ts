@@ -1,6 +1,6 @@
 import ifsp from "../images/organizationLogo/ifspLogo.png";
 import ifspVertical from "../images/organizationLogo/ifspVertical.png";
-import onesix from "../images/organizationLogo/OneSixLogo.svg";
+import emBreveImg from "../images/emBreve.png";
 import pet from "../images/organizationLogo/petLogo.svg";
 
 type OrganizerTypes = "Director" | "Organizer";
@@ -32,10 +32,10 @@ export const organizationContent: OrganizationProps[] = [
     type: "Organizer",
   },
   {
-    name: "ONE SIX",
-    logoPath: onesix,
-    link: "https://onesix.global",
-    width: "4.9rem",
+    name: "EM BREVE",
+    logoPath: emBreveImg,
+    link: "#",
+    width: "8rem",
     type: "Director",
   },
 ];

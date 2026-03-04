@@ -8,8 +8,8 @@ interface HeroProps {
 }
 
 export const heroContent: HeroProps = {
-  eventEdition: "VI Semana da Computação",
-  eventDate: "03 a 09 de outubro",
+  eventEdition: "VII Semana da Computação",
+  eventDate: "",
   logoPath: wecomp,
   logoAlternativeText: "Logo do evento da Semana da Computação WECOMP",
 };

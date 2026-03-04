@@ -19,7 +19,7 @@ import { Container } from "./styles";
 import groupProgramming from "../../../utils/groupProgramming";
 
 // Constants
-const soonOrNot = false;
+const soonOrNot = true;
 
 export default function Programming() {
   const isMobile = useIsMobile();
