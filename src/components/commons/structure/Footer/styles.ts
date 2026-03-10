@@ -28,7 +28,7 @@ export const FooterContent = styled.span`
   font-size: 10pt;
   font-weight: bold;
 
-  color: var(--gray-1000);
+  color: #ffff;
 
   @media (max-width: 400px) {
     font-size: 8pt;

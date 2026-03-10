@@ -9,7 +9,7 @@ export default function Footer() {
     <FooterContainer>
       <FooterContent>
         Desenvolvido com
-        <FaHeart color="red" />
+        <FaHeart color="#c12329" />
         <RedirectSpan
           link="http://petads.paginas.scl.ifsp.edu.br/#/"
           children="PET/ADS"

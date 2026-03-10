@@ -17,7 +17,7 @@ export default function ExpirienceTag({ label }: OfferModalityProps) {
       },
       Hiring: {
         backgroundColor: "#FCF2D6",
-        textColor: "#EAB00D",
+        textColor: "#be8b00",
         translateText: "Contratação",
       },
     };
