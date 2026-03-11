@@ -40,7 +40,7 @@ export const DropDownLink = styled.a`
   font-weight: bold;
   text-decoration: none;
 
-  color: var(--gray-1000);
+  color: #fff;
   cursor: pointer;
 
   @media (orientation: landscape) and (max-width: 930px) {
