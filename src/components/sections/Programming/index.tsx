@@ -1,35 +1,25 @@
-import { useState, useEffect } from "react";
+import { useState, useMemo } from "react";
 
-// Components
 import { Section } from "../../commons/structure/Section";
-//import Slider from "../../commons/toolkit/Slider";
 import Card from "./subcomponents/Card";
 import CardProjeto from "./subcomponents/Modal";
 import SoonCard from "../../commons/toolkit/SoonCard";
 
-// Hooks
 import useIsMobile from "../../../hooks/window/Mobile";
 import useIsMobileHeight from "../../../hooks/window/MobileHeight";
 
-// Data
 import programmingContent from "../../../assets/content/programming";
 
-// Styles
+
 import { 
   Container, 
   DaysTabs, 
   TimeTabs, 
   ContentWrapper, 
   TabButton, 
-  TimeButton,
-  EventsList
+  TimeButton, 
+  EventsList 
 } from "./styles";
-
-// Utils
-//import groupProgramming from "../../../utils/groupProgramming";
-
-// Constants
-const soonOrNot = false;
 
 export default function Programming() {
 
@@ -37,33 +27,47 @@ export default function Programming() {
   const isMobileHeight = useIsMobileHeight();
   const shouldUseMobileLayout = isMobile || isMobileHeight;
 
-  //const sortedData = groupProgramming(programmingContent);
+  const data = useMemo(() => programmingContent.map(e => ({
+    ...e,
+    date: e.date.trim(),
+    time: e.time.trim()
+  })), []);
 
-  const days = Array.from(new Set(programmingContent.map(event => event.date.trim()))).sort();
-
-  const [selectedDay, setSelectedDay] = useState(days[0] || "");
-  const [selectedTime, setSelectedTime] = useState("");
-
-  const availableTimesOfDay = Array.from(
-    new Set(
-      programmingContent
-        .filter(event => event.date.trim() === selectedDay.trim())
-        .map(event => event.time.trim())
-    )
-  ).sort();
-
-  useEffect(() => {
-    if (availableTimesOfDay.length > 0) {
-
-      if (!availableTimesOfDay.includes(selectedTime)) {
-        setSelectedTime(availableTimesOfDay[0]);
-      }
-    }
-  }, [selectedDay, availableTimesOfDay, selectedTime]);
-
-  const filteredEvents = programmingContent.filter(
-    (event) => event.date.trim() === selectedDay.trim() && event.time.trim() === selectedTime.trim()
+  const days = useMemo(() => 
+    Array.from(new Set(data.map(event => event.date))).sort(),
+    [data]
   );
+
+  const [selectedDay, setSelectedDay] = useState<string>(days[0] || "");
+  
+  const availableTimesOfDay = useMemo(() => {
+    if (!selectedDay) return [];
+    const times = data
+      .filter(event => event.date === selectedDay)
+      .map(event => event.time);
+    return Array.from(new Set(times)).sort();
+  }, [data, selectedDay]);
+
+  const [selectedTime, setSelectedTime] = useState<string>("");
+
+  const currentSelectedTime = availableTimesOfDay.includes(selectedTime) 
+    ? selectedTime 
+    : availableTimesOfDay[0] || "";
+
+  const [eventIndex, setEventIndex] = useState<number>(0);
+
+  const handleDayChange = (day: string) => {
+    setSelectedDay(day);
+    setEventIndex(0);
+  };
+
+  const filteredEvents = useMemo(() => {
+    return data.filter(e => e.date === selectedDay && e.time === currentSelectedTime);
+  }, [data, selectedDay, currentSelectedTime]);
+
+  const currentEvent = filteredEvents[eventIndex];
+
+  const soonOrNot = false;
 
   return (
     <Section
@@ -73,58 +77,61 @@ export default function Programming() {
     >
       <Container>
         {soonOrNot ? (
+
           <SoonCard />
+
         ) : (
           <>
-            <DaysTabs>
-              {days.map((day) => (
-                <TabButton 
-                  key={day} 
-                  $active={selectedDay === day}
-                  onClick={() => setSelectedDay(day)}
-                >
-                  {day}
-                </TabButton>
-              ))}
-            </DaysTabs>
+          <DaysTabs>
+            {days.map((day) => (
+              <TabButton 
+                key={day} 
+                $active={selectedDay === day}
+                onClick={() => handleDayChange(day)} 
+              >
+                {day}
+              </TabButton>
+            ))}
+          </DaysTabs>
 
-            <ContentWrapper>
+          <ContentWrapper>
+
+            <EventsList>
               <TimeTabs>
-                {availableTimesOfDay.map((time) => (
-                  <TimeButton 
-                    key={time} 
-                    $active={selectedTime === time} 
-                    onClick={() => setSelectedTime(time)}
-                  >
-                    {time}
-                  </TimeButton>
-                ))}
-              </TimeTabs>
+              {availableTimesOfDay.map((time) => (
+                <TimeButton 
+                  key={time} 
+                  $active={currentSelectedTime === time} 
+                  onClick={() => {
+                    setSelectedTime(time);
+                    setEventIndex(0); 
+                  }}
+                >
+                  {time}
+                </TimeButton>
+              ))}
+            </TimeTabs>
 
-              <EventsList>
-                {filteredEvents.map((event) => (
-                  shouldUseMobileLayout ? (
-                    <CardProjeto key={event.name} {...event} />
-                  ) : (
-                    <Card key={event.name} {...event} />
-                  )
-                ))}
-              </EventsList>
-            </ContentWrapper>
+              {currentEvent && (
+                shouldUseMobileLayout ? (
+                  <CardProjeto key={`${currentEvent.name}-${eventIndex}`} {...currentEvent} />
+                ) : (
+                  <Card
+                    key={`${currentEvent.name}-${eventIndex}`}
+                    {...currentEvent}
+                    pagination={{
+                      current: eventIndex + 1,
+                      total: filteredEvents.length,
+                      onNext: () => setEventIndex(i => Math.min(i + 1, filteredEvents.length - 1)),
+                      onPrev: () => setEventIndex(i => Math.max(i - 1, 0))
+                    }}
+                  />
+                )
+              )}
+            </EventsList>
+          </ContentWrapper>
+        </>
 
-            {/* <div style={{ display: 'none' }}>
-               <Slider
-                items={sortedData}
-                renderItem={(event) =>
-                  shouldUseMobileLayout ? (
-                    <CardProjeto key={event.name} {...event} />
-                  ) : (
-                    <Card key={event.name} {...event} />
-                  )
-                }
-              />
-            </div> */}
-          </>
         )}
       </Container>
     </Section>

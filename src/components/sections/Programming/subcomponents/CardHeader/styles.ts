@@ -31,18 +31,18 @@ export const InformationContainer = styled.div`
   }
 `;
 
-export const EventImage = styled.img`
-  width: 20%;
-  object-fit: cover; 
-  border-radius: 0.5rem; 
-  align-self: flex-start;
+// export const EventImage = styled.img`
+//   width: 20%;
+//   object-fit: cover; 
+//   border-radius: 0.5rem; 
+//   align-self: flex-start;
   
-  @media (max-width: 768px) {
-    width: 20%;
-    height: 20%;
+//   @media (max-width: 768px) {
+//     width: 20%;
+//     height: 20%;
     
-  }
-`;
+//   }
+// `;
 
 export const EventDetails = styled.div`
   font-size: 1rem;
@@ -62,9 +62,9 @@ export const EventSpeakers = styled.div`
   }
 `;
 
-export const TagContainer = styled.div`
-  display: flex;
-  align-items: center;
-  bottom: 0;
-  gap: 1.5rem;
-`;
+// export const TagContainer = styled.div`
+//   display: flex;
+//   align-items: center;
+//   bottom: 0;
+//   gap: 1.5rem;
+// `;

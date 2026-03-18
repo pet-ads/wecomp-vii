@@ -22,3 +22,43 @@ export const ContainerButtons = styled.div`
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const EventDescriptionButton = styled(ButtonContainer)<ButtonProps>``;
+
+export const PaginationWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  user-select: none;
+
+  span {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #444;
+    min-width: 45px;
+    text-align: center;
+  }
+
+  button {
+    background: transparent;
+    border: 1px solid #76b39d;
+    color: #76b39d;
+    border-radius: 6px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover:not(:disabled) {
+      background: #76b39d;
+      color: white;
+    }
+
+    &:disabled {
+      border-color: #ccc;
+      color: #ccc;
+      cursor: not-allowed;
+    }
+  }
+`;

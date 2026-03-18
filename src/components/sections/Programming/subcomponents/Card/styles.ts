@@ -4,30 +4,32 @@ import { mq } from "../../../../../utils/responsive/breakpoints";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   gap: 0.5rem;
-
   padding: 1.5rem;
-
   border-radius: 1rem;
-
   background-color: var(--white-100);
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
 
-  
   overflow: hidden; 
-  max-width: 31rem;
+  width: 100%;
+  max-width: 100%;
   min-width: 31rem;
-  max-height: 100%;
-  min-height: 100%;
 
+  height: 100%; 
+  min-height: 18rem;
+  max-height: 18rem;
 
+  @media (max-width: 900px) {
+    height: auto;
+    min-height: auto;
+    max-height: none;
+    min-width: 100%;
+  }
 
   @media (max-height: 684px) {
     max-width: 32rem;
     min-width: 32rem;
-    max-height: 100%;
-    min-height: 100%;
+    height: 22rem;
   }
 `;
 
