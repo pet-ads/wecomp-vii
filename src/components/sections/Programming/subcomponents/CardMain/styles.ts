@@ -58,7 +58,7 @@ export const EventDetails = styled.div`
     width: 4px;
   }
   &::-webkit-scrollbar-thumb {
-    background: #76b39d;
+    background: #7297a7;
     border-radius: 10px;
   }
 

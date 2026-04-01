@@ -1,16 +1,20 @@
 import { useState, useMemo } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
+// Components
 import { Section } from "../../commons/structure/Section";
 import Card from "./subcomponents/Card";
-import CardProjeto from "./subcomponents/Modal";
+import CardProjeto from "./subcomponents/Mobile";
 import SoonCard from "../../commons/toolkit/SoonCard";
 
+// Hooks
 import useIsMobile from "../../../hooks/window/Mobile";
 import useIsMobileHeight from "../../../hooks/window/MobileHeight";
 
+// Data
 import programmingContent from "../../../assets/content/programming";
 
-
+// Styles 
 import { 
   Container, 
   DaysTabs, 
@@ -18,14 +22,22 @@ import {
   ContentWrapper, 
   TabButton, 
   TimeButton, 
-  EventsList 
+  EventsList,
+  DropdownContainer,
+  DropdownHeader,
+  DropdownList,
+  DropdownItem,
+  IconArrow,
+  DayDivider,
+  PaginationContainer
 } from "./styles";
 
 export default function Programming() {
-
   const isMobile = useIsMobile();
   const isMobileHeight = useIsMobileHeight();
   const shouldUseMobileLayout = isMobile || isMobileHeight;
+
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const data = useMemo(() => programmingContent.map(e => ({
     ...e,
@@ -39,7 +51,9 @@ export default function Programming() {
   );
 
   const [selectedDay, setSelectedDay] = useState<string>(days[0] || "");
-  
+  const [selectedTime, setSelectedTime] = useState<string>("");
+  const [eventIndex, setEventIndex] = useState<number>(0);
+
   const availableTimesOfDay = useMemo(() => {
     if (!selectedDay) return [];
     const times = data
@@ -48,13 +62,30 @@ export default function Programming() {
     return Array.from(new Set(times)).sort();
   }, [data, selectedDay]);
 
-  const [selectedTime, setSelectedTime] = useState<string>("");
+  const currentSelectedTime = useMemo(() => {
+    return availableTimesOfDay.includes(selectedTime) 
+      ? selectedTime 
+      : availableTimesOfDay[0] || "";
+  }, [availableTimesOfDay, selectedTime]);
 
-  const currentSelectedTime = availableTimesOfDay.includes(selectedTime) 
-    ? selectedTime 
-    : availableTimesOfDay[0] || "";
+  const formatLabel = (date: string, time: string) => {
+    const dayNumeric = date.split(" ")[0];
+    return `${dayNumeric}/10 | ${time}`;
+  };
 
-  const [eventIndex, setEventIndex] = useState<number>(0);
+  const groupedMobileOptions = useMemo(() => {
+    const groups: Record<string, string[]> = {};
+    data.forEach(event => {
+      if (!groups[event.date]) {
+        groups[event.date] = [];
+      }
+      if (!groups[event.date].includes(event.time)) {
+        groups[event.date].push(event.time);
+      }
+    });
+    Object.keys(groups).forEach(day => groups[day].sort());
+    return groups;
+  }, [data]);
 
   const handleDayChange = (day: string) => {
     setSelectedDay(day);
@@ -66,7 +97,6 @@ export default function Programming() {
   }, [data, selectedDay, currentSelectedTime]);
 
   const currentEvent = filteredEvents[eventIndex];
-
   const soonOrNot = false;
 
   return (
@@ -77,61 +107,127 @@ export default function Programming() {
     >
       <Container>
         {soonOrNot ? (
-
           <SoonCard />
-
         ) : (
           <>
-          <DaysTabs>
-            {days.map((day) => (
-              <TabButton 
-                key={day} 
-                $active={selectedDay === day}
-                onClick={() => handleDayChange(day)} 
-              >
-                {day}
-              </TabButton>
-            ))}
-          </DaysTabs>
+            {!shouldUseMobileLayout && (
+              <DaysTabs>
+                {days.map((day) => (
+                  <TabButton 
+                    key={day} 
+                    $active={selectedDay === day}
+                    onClick={() => handleDayChange(day)} 
+                  >
+                    {day}
+                  </TabButton>
+                ))}
+              </DaysTabs>
+            )}
 
-          <ContentWrapper>
+            {shouldUseMobileLayout && (
+              <DropdownContainer>
+                <DropdownHeader onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                  {formatLabel(selectedDay, currentSelectedTime)}
+                  <IconArrow $isOpen={isDropdownOpen} />
+                </DropdownHeader>
+                
+                {isDropdownOpen && (
+                  <DropdownList>
+                    {Object.entries(groupedMobileOptions).map(([day, times]) => (
+                      <div key={day}>
+                        <DayDivider>{day}</DayDivider>
+                        
+                        {times.map((time) => {
+                          const isActive = selectedDay === day && currentSelectedTime === time;
+                          return (
+                            <DropdownItem 
+                              key={`${day}-${time}`}
+                              $active={isActive}
+                              onClick={() => {
+                                setSelectedDay(day);
+                                setSelectedTime(time);
+                                setEventIndex(0);
+                                setIsDropdownOpen(false);
+                              }}
+                            >
+                              {time}
+                            </DropdownItem>
+                          );
+                        })}
+                      </div>
+                    ))}
+                  </DropdownList>
+                )}
+              </DropdownContainer>
+            )}
 
-            <EventsList>
-              <TimeTabs>
-              {availableTimesOfDay.map((time) => (
-                <TimeButton 
-                  key={time} 
-                  $active={currentSelectedTime === time} 
-                  onClick={() => {
-                    setSelectedTime(time);
-                    setEventIndex(0); 
-                  }}
-                >
-                  {time}
-                </TimeButton>
-              ))}
-            </TimeTabs>
-
-              {currentEvent && (
-                shouldUseMobileLayout ? (
-                  <CardProjeto key={`${currentEvent.name}-${eventIndex}`} {...currentEvent} />
-                ) : (
-                  <Card
-                    key={`${currentEvent.name}-${eventIndex}`}
-                    {...currentEvent}
-                    pagination={{
-                      current: eventIndex + 1,
-                      total: filteredEvents.length,
-                      onNext: () => setEventIndex(i => Math.min(i + 1, filteredEvents.length - 1)),
-                      onPrev: () => setEventIndex(i => Math.max(i - 1, 0))
-                    }}
-                  />
-                )
+            <ContentWrapper>
+              {!shouldUseMobileLayout && (
+                <TimeTabs>
+                  {availableTimesOfDay.map((time) => (
+                    <TimeButton 
+                      key={time} 
+                      $active={currentSelectedTime === time} 
+                      onClick={() => {
+                        setSelectedTime(time);
+                        setEventIndex(0); 
+                      }}
+                    >
+                      {time}
+                    </TimeButton>
+                  ))}
+                </TimeTabs>
               )}
-            </EventsList>
-          </ContentWrapper>
-        </>
 
+              <EventsList>
+                {currentEvent && (
+                  shouldUseMobileLayout ? (
+                    <>
+                      <CardProjeto 
+                        key={`${currentEvent.name}-${eventIndex}`} 
+                        {...currentEvent}
+                      />
+                      
+                      {filteredEvents.length > 1 && (
+                        <PaginationContainer>
+                          <button 
+                            type="button"
+                            disabled={eventIndex === 0} 
+                            onClick={() => setEventIndex(i => Math.max(i - 1, 0))}
+                          >
+                            <FaChevronLeft size={12} />
+                          </button>
+                          
+                          <span>
+                            {eventIndex + 1} de {filteredEvents.length}
+                          </span>
+                          
+                          <button 
+                            type="button"
+                            disabled={eventIndex === filteredEvents.length - 1} 
+                            onClick={() => setEventIndex(i => Math.min(i + 1, filteredEvents.length - 1))}
+                          >
+                            <FaChevronRight size={12} />
+                          </button>
+                        </PaginationContainer>
+                      )}
+                    </>
+                  ) : (
+                    <Card
+                      key={`${currentEvent.name}-${eventIndex}`}
+                      {...currentEvent}
+                      pagination={{
+                        current: eventIndex + 1,
+                        total: filteredEvents.length,
+                        onNext: () => setEventIndex(i => Math.min(i + 1, filteredEvents.length - 1)),
+                        onPrev: () => setEventIndex(i => Math.max(i - 1, 0))
+                      }}
+                    />
+                  )
+                )}
+              </EventsList>
+            </ContentWrapper>
+          </>
         )}
       </Container>
     </Section>

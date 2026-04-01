@@ -39,8 +39,8 @@ export const PaginationWrapper = styled.div`
 
   button {
     background: transparent;
-    border: 1px solid #76b39d;
-    color: #76b39d;
+    border: 1px solid #7297a7;
+    color: #7297a7;
     border-radius: 6px;
     width: 28px;
     height: 28px;
@@ -51,7 +51,7 @@ export const PaginationWrapper = styled.div`
     transition: all 0.2s;
 
     &:hover:not(:disabled) {
-      background: #76b39d;
+      background: #7297a7;
       color: white;
     }
 
