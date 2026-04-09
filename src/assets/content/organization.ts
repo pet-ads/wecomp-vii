@@ -1,6 +1,5 @@
 import ifsp from "../images/organizationLogo/ifspLogo.png";
 import ifspVertical from "../images/organizationLogo/ifspVertical.png";
-import emBreveImg from "../images/emBreve.png";
 import pet from "../images/organizationLogo/petLogo.svg";
 
 type OrganizerTypes = "Director" | "Organizer";
@@ -30,14 +29,7 @@ export const organizationContent: OrganizationProps[] = [
     link: "https://petads-ifsp-scl.vercel.app",
     width: "8rem",
     type: "Organizer",
-  },
-  {
-    name: "EM BREVE",
-    logoPath: emBreveImg,
-    link: "#",
-    width: "8rem",
-    type: "Director",
-  },
+  }
 ];
 
 const organizers = organizationContent.reduce<{
