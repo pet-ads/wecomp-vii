@@ -95,7 +95,7 @@ export default function Programming() {
   }, [data, selectedDay, currentSelectedTime]);
 
   const currentEvent = filteredEvents[eventIndex];
-  const soonOrNot = false;
+  const soonOrNot = true;
 
   return (
     <Section

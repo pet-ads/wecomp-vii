@@ -33,7 +33,7 @@ export const programmingContent: ProgrammingProps[] = [
       "A abertura oficial da VI Wecomp acontecerá no ONOVOLAB e contará com a presença de empresas parceiras, uma mesa redonda com o tema 'Dev 2030: Como deverá ser a carreira de tech daqui a cinco anos?' e uma confraternização. Não perca!",
     typeEvent: "Opening",
     classification: "Free",
-    status: "Available",
+    status: "Closed",
   },
   {
     name: "Da Ideia à Solução: Caminhos Reais na Entrega e Suporte de Tecnologia",
@@ -52,7 +52,7 @@ export const programmingContent: ProgrammingProps[] = [
       "Esta sessão interativa reúne profissionais de diferentes áreas para compartilhar suas trajetórias e experiências na entrega de soluções, suporte a sistemas e interação com usuários. O painel abordará como uma ideia nasce a partir da necessidade do cliente, os passos até sua implementação técnica e o papel essencial das áreas de suporte e operações.",
     typeEvent: "Talk",
     classification: "Free",
-    status: "Available",
+    status: "Closed",
   },
   {
     name: "Conheça a CSD BR: Como a inovação tecnológica propiciou melhor desempenho e robustez para a nova clearing do Brasil",
@@ -69,7 +69,7 @@ export const programmingContent: ProgrammingProps[] = [
       "Nessa talk, os profissionais da CSD BR apresentarão a empresa, a cultura, os desafios e as oportunidades disponíveis aos profissionais da região",
     typeEvent: "Talk",
     classification: "Free",
-    status: "Available",
+    status: "Closed",
   },
   {
     name: "A Solução Começa na Orelha",
@@ -86,7 +86,7 @@ export const programmingContent: ProgrammingProps[] = [
       "Esta palestra apresenta a Kakau Tech, uma empresa especializada em integrar a tecnologia digital aos negócios. Na Kakau Tech, o foco está em compreender profundamente os desafios dos clientes para oferecer soluções realmente relevantes. Este bate-papo busca mostrar que a tecnologia deve servir ao propósito de resolver problemas reais, e que o sucesso está em propor soluções simples e eficazes – em vez de apostar em ferramentas sofisticadas que não se conectam com as necessidades do cliente. Os participantes perceberão que a escuta ativa, aliada à identificação de oportunidades e à definição de estratégias de inovação, agrega valor prático, com exemplos do cotidiano empresarial e experiências do mercado.",
     typeEvent: "Talk",
     classification: "Free",
-    status: "Available",
+    status: "Closed",
   },
   {
     name: "IA e Carreiras do Futuro: Tendências, Habilidades e Oportunidades",
@@ -103,7 +103,7 @@ export const programmingContent: ProgrammingProps[] = [
       "A IA está transformando o mercado de trabalho e abrindo novas possibilidades para profissionais de tecnologia. Neste talk da DIO, vamos explorar como a IA está transformando setores, redefinindo funções e criando oportunidades inéditas. Discutiremos as principais tendências que guiarão o futuro das carreiras, as habilidades mais valorizadas nesse novo cenário e como cada profissional pode se preparar para se destacar.",
     typeEvent: "Talk",
     classification: "Free",
-    status: "Available",
+    status: "Closed",
   },
   {
     name: "Além do hype: criando uma empresa de tecnologia do zero",
@@ -120,7 +120,7 @@ export const programmingContent: ProgrammingProps[] = [
       "Queremos te contar o que ninguém contou sobre empreender ainda na faculdade. Quais foram os desafios e aprendizados até a Softable se tornar parceira de tecnologia de algumas das maiores marcas do mundo.",
     typeEvent: "Talk",
     classification: "Free",
-    status: "Available",
+    status: "Closed",
   },
   {
     name: "IA Generativa e Aplicações Reais em Projetos de Negócio.",
@@ -137,7 +137,7 @@ export const programmingContent: ProgrammingProps[] = [
       "O minicurso tem como objetivo oferecer uma visão prática e objetiva sobre inteligência Artificial Generativa, abordando as técnicas existentes, os modelos utilizados e suas aplicações práticas em cases de negócio, utilizando infraestrutura offline e integrações com API's dos principais players do mercado. A partir de dois mini projetos, os participantes terão contato direto com exemplos reais de uso, conectando teoria e prática e demonstrando como essas soluções podem gerar valor em diferentes contextos de negócio.",
     typeEvent: "Course",
     classification: "Basic",
-    status: "Available",
+    status: "Closed",
   },
   {
     name: "Introdução à automação de testes com Playwright.",
@@ -154,7 +154,7 @@ export const programmingContent: ProgrammingProps[] = [
       "Aprenda os fundamentos da automação de testes com Playwright em um minicurso prático, explorando conceitos, exemplos e primeiros scripts.",
     typeEvent: "Course",
     classification: "Basic",
-    status: "Available",
+    status: "Closed",
   },
   {
     name: "Desenvolvendo um aplicativo multiplataforma com Expo, Google Maps e Redux.",
@@ -171,7 +171,7 @@ export const programmingContent: ProgrammingProps[] = [
       "Neste minicurso vamos explorar a utilização das bibliotecas react-native-maps e Redux em um aplicativo React Native gerenciado pela plataforma Expo. Faremos um app que acompanha o progresso de uma caminhada/trilha e mostra informações úteis para o usuário.",
     typeEvent: "Course",
     classification: "Intermediary",
-    status: "Available",
+    status: "Closed",
   },
   {
     name: "Por que 90% dos apps quebram em 6 meses — e como evitar isso com arquitetura e MVVM",
@@ -188,7 +188,7 @@ export const programmingContent: ProgrammingProps[] = [
       "A maioria dos apps falha porque o código apodrece rápido demais. Você começa empolgado, coloca tudo em uma Activity, e em semanas vira um caos. Isso não é azar, é falta de arquitetura. MVVM não é luxo: é disciplina, é o que separa um app descartável de um software profissional. Neste minicurso você vai aprender, na prática, a estruturar seu código para durar, ser testável e crescer sem colapsar. Esqueça atalhos: arquitetura é sobrevivência.",
     typeEvent: "Course",
     classification: "Intermediary",
-    status: "Available",
+    status: "Closed",
   },
   {
     name: "Introdução ao Clojure — explorando a programação funcional.",
@@ -205,7 +205,7 @@ export const programmingContent: ProgrammingProps[] = [
       "Clojure é uma linguagem moderna, funcional e poderosa que vai te mostrar um novo jeito de programar — mais simples, mais expressivo e com foco em resultados. Durante o minicurso, você vai entender os fundamentos da programação funcional, conhecer a sintaxe do Clojure e criar um programa do zero, tudo de forma prática e descomplicada.",
     typeEvent: "Course",
     classification: "Intermediary",
-    status: "Available",
+    status: "Closed",
   },
   {
     name: "Git e GitHub: do mínimo que você precisa saber ao deploy no Vercel",
@@ -222,7 +222,7 @@ export const programmingContent: ProgrammingProps[] = [
       "Neste minicurso, você aprenderá os conceitos básicos do Git, capacitando-o a usar essa ferramenta no dia a dia. Também será apresentada uma visão geral do GitHub e como integrá-lo ao Vercel para realizar deploys automáticos de páginas web.",
     typeEvent: "Course",
     classification: "Free",
-    status: "Available",
+    status: "Closed",
   },
   {
     name: "Como sobreviver no terminal do Linux",
@@ -239,7 +239,7 @@ export const programmingContent: ProgrammingProps[] = [
       "Este mini-curso apresentará uma breve história da filosofia do Software Livre e do surgimento do sistema operacional Linux, focando em seguida nos principais comandos para dominar o terminal e executar tarefas com agilidade e eficiência. Desde comandos básicos de navegação até operações mais avançadas, serão exploradas ferramentas essenciais para gestão de arquivos, instalação de programas, gerenciamento de processos, entre outros, de uma forma totalmente prática.",
     typeEvent: "Course",
     classification: "Free",
-    status: "Available",
+    status: "Closed",
   },
   {
     name: "Desenvolvimento de Aplicações Híbridas com Capacitor",
@@ -256,7 +256,7 @@ export const programmingContent: ProgrammingProps[] = [
       "Oficina prática sobre o desenvolvimento de aplicações híbridas utilizando Capacitor, explorando integração com frameworks web React, acesso a recursos nativos do dispositivo e empacotamento para Android. Serão abordados conceitos de configuração, plugins, ciclo de build e boas práticas para distribuição em lojas de aplicativos.",
     typeEvent: "Course",
     classification: "Intermediary",
-    status: "Available",
+    status: "Closed",
   },
   {
     name: "Programação Rústica: desbravando o Rust do zero",
@@ -273,7 +273,7 @@ export const programmingContent: ProgrammingProps[] = [
       "Rust é uma linguagem de programação moderna que vem ganhando destaque por unir alto desempenho, segurança de memória e um ecossistema em constante crescimento. Utilizada em grandes projetos de software e cada vez mais presente no mercado, ela se destaca como uma alternativa poderosa a linguagens tradicionais como C e C++. Nesta minicurso, vamos explorar os conceitos básicos da linguagem, entender sua proposta e dar os primeiros passos no desenvolvimento com Rust.",
     typeEvent: "Course",
     classification: "Basic",
-    status: "Available",
+    status: "Closed",
   },
   {
     name: "O Unicórnio da Tecnologia: Profissionais de TI que Sabem Vender",
@@ -290,7 +290,7 @@ export const programmingContent: ProgrammingProps[] = [
       "Você já percebeu que saber apenas programar ou configurar sistemas pode não garantir mais o seu futuro em tecnologia? As empresas estão em busca de um perfil raro: profissionais que entendem de tecnologia e sabem comunicar valor, gerar negócios e construir confiança. Neste encontro, vamos mostrar como transformar seu conhecimento técnico em vantagem competitiva, explorando caminhos de carreira que vão muito além da programação — e que podem ser altamente rentáveis. Se você quer se tornar o unicórnio que o mercado procura, esse é o seu lugar!",
     typeEvent: "Course",
     classification: "Free",
-    status: "Available",
+    status: "Closed",
   },
   {
     name: "Criando um chat de mensagens com React, TypeScript e WebSocket",
@@ -307,7 +307,7 @@ export const programmingContent: ProgrammingProps[] = [
       "Neste minicurso, vamos desenvolver juntos uma aplicação de chat em tempo real usando React com TypeScript e WebSocket. O back-end já estará pronto, então o foco será na construção do front-end: implementação da interface, conexão e troca de mensagens entre usuários. Além disso, vamos abordar boas práticas de organização de código, assim como dicas e pontos importantes para quem deseja se aprimorar no desenvolvimento do dia a dia.",
     typeEvent: "Course",
     classification: "Intermediary",
-    status: "Available",
+    status: "Closed",
   },
 ];
 
