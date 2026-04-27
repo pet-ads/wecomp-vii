@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { mq } from "../../../utils/responsive/breakpoints";
 
 const responsiveWidth = css`
@@ -166,6 +166,12 @@ export const EventsList = styled.main`
   }
 `;
 
+const blinkGlow = keyframes`
+  0% { box-shadow: 0 0 0px rgba(0, 51, 102, 0); transform: scale(1); }
+  50% { box-shadow: 0 0 15px 5px rgba(99, 161, 188, 0.8); transform: scale(1.1); }
+  100% { box-shadow: 0 0 0px rgba(0, 51, 102, 0); transform: scale(1); }
+`;
+
 export const PaginationWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -186,11 +192,12 @@ export const PaginationWrapper = styled.div`
     min-width: 45px;
     text-align: center;
   }
+    
 
   button {
-    background: transparent;
+    background: #63a1bc;
     border: 1px solid #63a1bc;
-    color: #63a1bc;
+    color: #ffffff;
     border-radius: 6px;
     width: 28px;
     height: 28px;
@@ -206,9 +213,16 @@ export const PaginationWrapper = styled.div`
     }
 
     &:disabled {
+      background: transparent;
       border-color: #ccc;
       color: #ccc;
       cursor: not-allowed;
+      animation: none;
+    }
+
+    &:last-child:not(:disabled) {
+      /* Aplica a animação: nome | duração | timing | repetições */
+      animation: ${blinkGlow} 0.8s ease-in-out 3;
     }
   }
 `;
