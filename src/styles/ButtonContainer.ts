@@ -9,8 +9,8 @@ const ButtonContainer = styled.button`
   min-width: 7rem;
   max-width: 7rem;
 
-  min-height: 2.5rem;
-  max-height: 2.5rem;
+  min-height: 2rem;
+  max-height: 2rem;
 
   padding: 0.5rem 1rem;
 
