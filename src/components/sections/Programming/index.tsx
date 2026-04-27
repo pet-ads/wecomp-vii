@@ -112,7 +112,7 @@ export default function Programming() {
   }, [data, selectedDay, currentSelectedTime]);
 
   const currentEvent = filteredEvents[eventIndex];
-  const soonOrNot = true;
+  const soonOrNot = false;
 
   return (
     <Section
