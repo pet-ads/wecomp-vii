@@ -12,7 +12,7 @@ export default function Header() {
     { text: "Apoiadores", sectionId: "Sponsors" },
     { text: "Realização", sectionId: "Organization" },
     { text: "Programação", sectionId: "Programming" },
-    { text: "Destaques", sectionId: "Highlights" },
+    // { text: "Destaques", sectionId: "Highlights" },
     { text: "Locais", sectionId: "Locations" },
     { text: "Contato", sectionId: "Contact" },
     { text: "Edições", sectionId: "Editions" },

@@ -4,7 +4,7 @@ export * from "./Organization";
 export * from "./Editions";
 export * from "./FAQs";
 export * from "./HeroBanner";
-export * from "./Highlights";
+//export * from "./Highlights";
 export * from "./Locations";
 export * from "./Programming";
 export * from "./Sponsor";

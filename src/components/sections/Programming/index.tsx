@@ -118,7 +118,7 @@ export default function Programming() {
     <Section
       title="Programação"
       currentSectionId="Programming"
-      nextSectionId="Highlights"
+      nextSectionId="Locations"
     >
       <Container>
         {soonOrNot ? (
