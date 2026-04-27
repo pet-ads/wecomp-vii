@@ -19,8 +19,8 @@ export const InformationContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  max-width: 65%;
-  min-width: 65%;
+  max-width: 100%;
+  min-width: 100%;
   min-height: 100%;
   max-height: 100%;
   text-align: justify;
@@ -32,20 +32,10 @@ export const InformationContainer = styled.div`
 `;
 
 export const EventDetails = styled.div`
-  font-size: 1rem;
-  font-weight: 600;
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-`;
-
-export const EventSpeakers = styled.div`
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--gray-1000);
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
+  font-size: 0.85rem;
+  font-weight: 650;
+  // @media (max-width: 768px) {
+  //   width: 100%;
+  // }
 `;
 
