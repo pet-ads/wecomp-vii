@@ -5,7 +5,7 @@ import {
   Sponsors,
   Organization,
   Programming,
-  Highlights,
+  //Highlights,
   Locations,
   Contact,
   Editions,
@@ -24,7 +24,7 @@ export default function Home() {
         <Sponsors />
         <Organization />
         <Programming />
-        <Highlights />
+        {/* <Highlights /> */}
         <Locations />
         <Contact />
         <Editions />

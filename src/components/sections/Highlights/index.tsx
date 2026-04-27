@@ -1,4 +1,4 @@
-import { Section } from "../../commons/structure/Section";
+//import { Section } from "../../commons/structure/Section";
 import { Container } from "./styles";
 // import SoonCard from "../../commons/toolkit/SoonCard";
 import Slider from "../../commons/toolkit/Slider";
@@ -16,11 +16,11 @@ export default function Highlights() {
    const shouldUseMobileLayout = isMobile || isMobileHeight;
 
   return (
-    <Section
-      title="Destaques"
-      currentSectionId="Highlights"
-      nextSectionId="Locations"
-    >
+    // <Section
+    //   title="Destaques"
+    //   currentSectionId="Highlights"
+    //   nextSectionId="Locations"
+    // >
        <Container>
         <Slider
           items={highlightContent}
@@ -34,6 +34,6 @@ export default function Highlights() {
         />
         
       </Container>
-    </Section>
+    // </Section>
   );
 }
