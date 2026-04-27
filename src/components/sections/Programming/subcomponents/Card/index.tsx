@@ -43,7 +43,7 @@ export default function Card({
       </IconContainer>
       <CardHeader
         author={author}
-        eventLocationAndDate={[location, author]
+        eventLocationAndAuthor={[location, author]
           .filter(Boolean)
           .join(" | ")}
       />

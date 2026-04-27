@@ -4,7 +4,7 @@
 // } from "../../../../commons/toolkit/tags/types";
 
 export interface CardHeaderProps {
-  eventLocationAndDate: string;
+  eventLocationAndAuthor: string;
   author: string;
   // status: AvailabilityStatus;
   // classification: DifficultyEvent;

@@ -12,7 +12,7 @@ import {
 } from "./styles";
 
 export default function CardHeader({
-  eventLocationAndDate,
+  eventLocationAndAuthor,
   // status,
   // classification,
   // image,
@@ -21,13 +21,8 @@ export default function CardHeader({
   return (
     <Container>
       <InformationContainer>
-        <EventDetails>{eventLocationAndDate}</EventDetails>
-        {/* <TagContainer>
-          <DifficultyTag label={classification} />
-          <AvailabilityTag label={status} />
-        </TagContainer> */}
+        <EventDetails>{eventLocationAndAuthor}</EventDetails>
       </InformationContainer>
-      {/* <EventImage src={image} alt={imageDescription} draggable={false} /> */}
     </Container>
   );
 }
