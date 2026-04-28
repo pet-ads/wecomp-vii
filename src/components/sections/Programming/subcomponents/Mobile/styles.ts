@@ -95,8 +95,7 @@ export const VagasWrapper = styled.footer`
 `;
 
 export const EventImage = styled.img`
-  width: 60px;
-  height: 60px;
+  width: 22%;
   object-fit: contain;
   border-radius: 8px;
 `;
