@@ -137,8 +137,6 @@ export const ContainerFooter = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   width: 100%;
-  margin-top: auto;
-  padding-top: 1rem;
 `;
 
 export const ContainerButtons = styled.div`
