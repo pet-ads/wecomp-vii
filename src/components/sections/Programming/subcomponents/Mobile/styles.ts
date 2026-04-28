@@ -51,12 +51,6 @@ export const EventTitle = styled.div<{ isOpen: boolean }>`
   color: #000;
   line-height: 1.2;
   font-size: 0.95rem;
-
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  min-height: 2.4em;
 `;
 
 export const EventDetails = styled.div<{ isOpen: boolean }>`
