@@ -221,7 +221,6 @@ export const PaginationWrapper = styled.div`
     }
 
     &:last-child:not(:disabled) {
-      /* Aplica a animação: nome | duração | timing | repetições */
       animation: ${blinkGlow} 0.8s ease-in-out 3;
     }
   }
@@ -278,11 +277,11 @@ export const DropdownItem = styled.div<{ $active: boolean }>`
   font-weight: 700;
   cursor: pointer;
   border-bottom: 1px solid #f0f0f0;
-  background-color: ${props => props.$active ? "#000" : "#fff"};
+  background-color: ${props => props.$active ? "#63a1bc" : "#fff"};
   color: ${props => props.$active ? "#fff" : "#000"};
 
   &:hover {
-    background-color: ${props => props.$active ? "#000" : "#f9f9f9"};
+    background-color: ${props => props.$active ? "#63a1bc" : "#f9f9f9"};
   }
 `;
 
