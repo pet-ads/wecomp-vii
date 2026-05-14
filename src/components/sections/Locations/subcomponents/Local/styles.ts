@@ -3,16 +3,15 @@ import { mq } from "../../../../../utils/responsive/breakpoints";
 
 export const Container = styled.div`
   width: 100%;
-  max-width: 12rem;
+  max-width: 11rem;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  margin-top: 2rem;
+  margin-top: 1rem;
 
-  gap: 1rem;
 
   @media (min-width: 1024px) {
     width: max(calc(50% - 1rem), 20rem);
