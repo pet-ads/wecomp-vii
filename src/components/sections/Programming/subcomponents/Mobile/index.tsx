@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import useToggleCardContent from "../../../../../hooks/toggle/useToggleCardContent";
 import RedirectButton from "../../../../commons/toolkit/RedirectButton";
 import AvailabilityTag from "../../../../commons/toolkit/tags/AvailabilityTag";
@@ -22,7 +21,6 @@ import {
   ContainerFooter,
   ContainerButtons,
   EventDescriptionButton,
-  PaginationWrapper,
 } from "./styles";
 
 import { generatedIconEvent } from "../../../../../utils/generatedIconEvent";
@@ -50,8 +48,7 @@ export default function CardProjeto({
   status,
   typeEvent,
   location,
-  link,
-  pagination,
+  link
 }: Props) {
   const eventIconProps = generatedIconEvent(typeEvent);
 
@@ -124,30 +121,6 @@ export default function CardProjeto({
           </ContainerButtons>
         </ContainerFooter>
       </Container>
-
-      {pagination && pagination.total > 1 && (
-        <PaginationWrapper>
-          <button 
-            type="button"
-            disabled={pagination.current === 1} 
-            onClick={pagination.onPrev}
-          >
-            <FaChevronLeft size={14} />
-          </button>
-          
-          <span>
-            {pagination.current} de {pagination.total}
-          </span>
-          
-          <button 
-            type="button"
-            disabled={pagination.current === pagination.total} 
-            onClick={pagination.onNext}
-          >
-            <FaChevronRight size={14} />
-          </button>
-        </PaginationWrapper>
-      )}
     </div>
   );
 }

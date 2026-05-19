@@ -45,7 +45,7 @@ export const Container = styled.div`
 `;
 
 export const EventDetails = styled.div`
-  font-size: 1rem;
+  font-size: 0.85rem;
   font-weight: 600;
   line-height: 1.5rem; 
   
@@ -69,14 +69,14 @@ export const EventDetails = styled.div`
 `;
 
 export const EventImage = styled.img`
-  width: 10%;
+  width: 11%;
   object-fit: cover; 
   border-radius: 0.5rem; 
   align-self: center;
   
   @media (max-width: 768px) {
-    width: 10%;
-    height: 10%;
+    width: 11%;
+    height: 11%;
     
   }
 `;

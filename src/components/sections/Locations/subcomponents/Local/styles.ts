@@ -2,14 +2,21 @@ import styled from "styled-components";
 import { mq } from "../../../../../utils/responsive/breakpoints";
 
 export const Container = styled.div`
-  width: max(calc(50% - 1rem), 20rem);
+  width: 100%;
+  max-width: 11rem;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  gap: 1rem;
+  margin-top: 1rem;
+
+
+  @media (min-width: 1024px) {
+    width: max(calc(50% - 1rem), 20rem);
+    max-width: none;
+  }
 
   @media (orientation: landscape) and (max-width: 930px) {
     width: 100%;
@@ -29,12 +36,14 @@ export const MapFrame = styled.iframe`
   border: none;
 
   ${mq({
-    height: ["5rem", "5rem", "5rem", "5rem", "5rem", "12rem"],
+    aspectRatio: ["1 / 1", "1 / 1", "1 / 1", "1 / 1", "1 / 1", "initial"],
+    height: ["auto", "auto", "auto", "auto", "auto", "12rem"],
   })}
 
   @media (orientation: landscape) and (max-width: 930px) {
-    width: 100%;
-    height: 5rem;
+    width: 50%;
+    height: 50%;
+    aspect-ratio: 1 / 1;
   }
 `;
 

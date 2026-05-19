@@ -28,6 +28,13 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Montserrat';
   }
 
+  @media (max-width: 768px) {
+    [vw], .enabled, [vw-access-button], [vw-plugin-wrapper] {
+      display: none !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+    }
+
 `;
 
 export default GlobalStyles;

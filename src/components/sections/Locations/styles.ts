@@ -11,6 +11,11 @@ export const Container = styled.div`
   flex-wrap: wrap;
 
   gap: 2rem;
+  margin-bottom: 7rem;
+
+  @media (min-width: 1024px) {
+    margin-bottom: 0;
+  }
 
   @media (orientation: landscape) and (max-width: 930px) {
     flex-wrap: nowrap;

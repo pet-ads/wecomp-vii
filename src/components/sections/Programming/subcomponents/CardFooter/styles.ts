@@ -8,6 +8,8 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
 
+  margin-top: 10px;
+
   min-width: 100%;
   max-width: 100%;
 
@@ -28,37 +30,4 @@ export const PaginationWrapper = styled.div`
   align-items: center;
   gap: 12px;
   user-select: none;
-
-  span {
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: #444;
-    min-width: 45px;
-    text-align: center;
-  }
-
-  button {
-    background: transparent;
-    border: 1px solid #7297a7;
-    color: #7297a7;
-    border-radius: 6px;
-    width: 28px;
-    height: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.2s;
-
-    &:hover:not(:disabled) {
-      background: #7297a7;
-      color: white;
-    }
-
-    &:disabled {
-      border-color: #ccc;
-      color: #ccc;
-      cursor: not-allowed;
-    }
-  }
 `;

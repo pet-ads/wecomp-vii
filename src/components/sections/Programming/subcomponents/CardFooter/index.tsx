@@ -34,7 +34,7 @@ export default function CardFooter({
     }, 1000 * 30);
 
     return () => clearInterval(interval);
-  }, []);
+  });
 
   const isShowSubscriveButton = isAfterCutoff && link && status != "Closed";
 
