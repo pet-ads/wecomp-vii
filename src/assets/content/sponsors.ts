@@ -1,7 +1,7 @@
 import scenario from "../images/organizationLogo/ScenarioLogo.svg";
 import leGaban from "../images/organizationLogo/LeGabanLogo.svg";
-// import stepWise from "../images/organizationLogo/StepWiseLogo.svg";
-// import onovolab from "../images/organizationLogo/onovolab.svg";
+import stepWise from "../images/organizationLogo/StepWiseLogo.svg";
+import onovolab from "../images/organizationLogo/onovolab.svg";
 // import marlabs from "../images/organizationLogo/MarlabsLogo.svg";
 
 interface SponsorProps {
@@ -19,23 +19,23 @@ export const sponsorsContent: SponsorProps[] = [
     width: "9rem",
   },
   {
+    name: "STEP WISE",
+    logoPath: stepWise,
+    link: "https://stepwise.com.br/",
+    width: "8rem",
+  },
+  {
+    name: "ONOVOLAB",
+    logoPath: onovolab,
+    link: "https://onovolab.com",
+    width: "9rem",
+  },
+  {
     name: "LE GABAN",
     logoPath: leGaban,
     link: "https://legaban.com.br/",
     width: "8rem",
   }
-  // {
-  //   name: "STEP WISE",
-  //   logoPath: stepWise,
-  //   link: "https://stepwise.com.br/",
-  //   width: "8rem",
-  // },
-  // {
-  //   name: "ONOVOLAB",
-  //   logoPath: onovolab,
-  //   link: "https://onovolab.com",
-  //   width: "9rem",
-  // },
   // {
   //   name: "MARLABS",
   //   logoPath: marlabs,
