@@ -5,7 +5,7 @@ import Carousel from "../../commons/toolkit/Carousel";
 
 import { Container } from "./styles";
 
-const soonOrNot = true;
+const soonOrNot = false;
 
 
 export default function SupportersCarousel() {
