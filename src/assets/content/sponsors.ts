@@ -19,7 +19,7 @@ export const sponsorsContent: SponsorProps[] = [
     width: "9rem",
   },
   {
-    name: "STEP WISE",
+    name: "STEPWISE",
     logoPath: stepWise,
     link: "https://stepwise.com.br/",
     width: "8rem",
