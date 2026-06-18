@@ -2,6 +2,7 @@ import scenario from "../images/organizationLogo/ScenarioLogo.svg";
 import leGaban from "../images/organizationLogo/LeGabanLogo.svg";
 import stepWise from "../images/organizationLogo/StepWiseLogo.svg";
 import onovolab from "../images/organizationLogo/onovolab.svg";
+import salespace from "../images/organizationLogo/SalespaceLogo.svg";
 // import marlabs from "../images/organizationLogo/MarlabsLogo.svg";
 
 interface SponsorProps {
@@ -35,13 +36,13 @@ export const sponsorsContent: SponsorProps[] = [
     logoPath: leGaban,
     link: "https://legaban.com.br/",
     width: "8rem",
+  },
+  {
+    name: "SALASPACE",
+    logoPath: salespace,
+    link: "https://salespace.com.br/",
+    width: "9rem",
   }
-  // {
-  //   name: "MARLABS",
-  //   logoPath: marlabs,
-  //   link: "https://www.marlabs.com/pt-br",
-  //   width: "9rem",
-  // }
 ];
 
 export default sponsorsContent;
