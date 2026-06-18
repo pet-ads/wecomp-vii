@@ -38,7 +38,7 @@ export const sponsorsContent: SponsorProps[] = [
     width: "8rem",
   },
   {
-    name: "SALASPACE",
+    name: "SALESPACE",
     logoPath: salespace,
     link: "https://salespace.com.br/",
     width: "9rem",
