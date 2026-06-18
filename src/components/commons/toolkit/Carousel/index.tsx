@@ -33,7 +33,7 @@ export default function Carousel({ items, visibleItems }: CarouselProps) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (!isDragging.current) {
+      if (!isDragging.current && !document.hidden) {
         setIsTransitioning(true);
         setIndex((prev) => prev + 1);
       }
@@ -100,7 +100,7 @@ export default function Carousel({ items, visibleItems }: CarouselProps) {
       onMouseLeave={handleTouchEnd}
     >
       <LogoList
-        onTransitionEnd={handleTransitionEnd} // O evento monitora a transição aqui
+        onTransitionEnd={handleTransitionEnd}
         style={{
           transform: getTranslate(),
           width: `${(100 * loopedItems.length) / currentVisibleItems}%`,
