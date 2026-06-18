@@ -16,6 +16,8 @@ interface CarouselProps {
 export default function Carousel({ items, visibleItems }: CarouselProps) {
   const [index, setIndex] = useState(items.length);
   const [currentVisibleItems, setCurrentVisibleItems] = useState(visibleItems);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+
   const loopedItems = [...items, ...items, ...items];
   const startX = useRef<number | null>(null);
   const isDragging = useRef(false);
@@ -32,11 +34,12 @@ export default function Carousel({ items, visibleItems }: CarouselProps) {
   useEffect(() => {
     const interval = setInterval(() => {
       if (!isDragging.current) {
-        setIndex((prev) => (prev + 1) % loopedItems.length);
+        setIsTransitioning(true);
+        setIndex((prev) => prev + 1);
       }
     }, 2500);
     return () => clearInterval(interval);
-  }, [loopedItems.length]);
+  }, []);
 
   const getTranslate = () => {
     const offset = Math.floor(currentVisibleItems / 2);
@@ -44,11 +47,17 @@ export default function Carousel({ items, visibleItems }: CarouselProps) {
     return `translateX(-${shift}%)`;
   };
 
-  useEffect(() => {
+  const handleTransitionEnd = (e: React.TransitionEvent<HTMLUListElement>) => {
+    if (e.target !== e.currentTarget) return;
+
     if (index >= items.length * 2) {
-      setTimeout(() => setIndex(items.length), 0);
+      setIsTransitioning(false);
+      setIndex((prev) => prev - items.length);
+    } else if (index < items.length) {
+      setIsTransitioning(false);
+      setIndex((prev) => prev + items.length);
     }
-  }, [index, items.length]);
+  };
 
   const handleTouchStart = (e: React.TouchEvent | React.MouseEvent) => {
     startX.current =
@@ -64,12 +73,11 @@ export default function Carousel({ items, visibleItems }: CarouselProps) {
     const diff = currentX - startX.current;
 
     if (Math.abs(diff) > 50) {
+      setIsTransitioning(true);
       if (diff > 0) {
-        setIndex(
-          (prev) => (prev - 1 + loopedItems.length) % loopedItems.length
-        );
+        setIndex((prev) => prev - 1);
       } else {
-        setIndex((prev) => (prev + 1) % loopedItems.length);
+        setIndex((prev) => prev + 1);
       }
       isDragging.current = false;
       startX.current = null;
@@ -92,9 +100,11 @@ export default function Carousel({ items, visibleItems }: CarouselProps) {
       onMouseLeave={handleTouchEnd}
     >
       <LogoList
+        onTransitionEnd={handleTransitionEnd} // O evento monitora a transição aqui
         style={{
           transform: getTranslate(),
           width: `${(100 * loopedItems.length) / currentVisibleItems}%`,
+          transition: isTransitioning ? "transform 0.8s ease-in-out" : "none",
         }}
       >
         {loopedItems.map((item, i) => {
@@ -104,6 +114,9 @@ export default function Carousel({ items, visibleItems }: CarouselProps) {
               <LogoFigure
                 isCenter={isCenter}
                 onClick={() => window.open(item.link, "_blank")}
+                style={{
+                  transition: isTransitioning ? "all 0.5s ease-in-out" : "none",
+                }}
               >
                 <LogoImage
                   src={item.logoPath}
